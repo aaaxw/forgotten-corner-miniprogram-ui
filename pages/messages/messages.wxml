@@ -1,0 +1,34 @@
+<view class="page messages-page">
+  <view class="msg-hero panel">
+    <view class="msg-title">线索中心</view>
+    <view class="msg-desc">匹配提醒、认领确认和管理员通知会集中显示在这里。</view>
+    <view class="msg-stat">
+      <view class="msg-stat-num">{{unreadCount}}</view>
+      <view class="msg-stat-label">条未读消息</view>
+    </view>
+  </view>
+
+  <view class="message-toolbar">
+    <view class="section-title">最近消息</view>
+    <view class="toolbar-actions">
+      <view class="toolbar-btn" bindtap="markAllRead">全部已读</view>
+      <view class="toolbar-btn danger" bindtap="clearMessages">清空</view>
+    </view>
+  </view>
+  <view wx:if="{{messages.length === 0}}" class="empty-card">
+    <view class="empty-title">暂无消息</view>
+    <view class="empty-desc">发布线索、联系对方或标记完成后，通知会出现在这里。</view>
+    <navigator class="empty-action" url="/pages/home/home" open-type="switchTab">回到首页</navigator>
+  </view>
+  <view wx:for="{{messages}}" wx:key="id" class="item-card message-card" data-id="{{item.id}}" bindtap="markRead">
+    <view class="avatar">{{item.avatar}}</view>
+    <view class="message-main">
+      <view class="message-top">
+        <view class="message-name">{{item.name}}</view>
+        <view class="message-time">{{item.time}}</view>
+      </view>
+      <view class="message-text">{{item.text}}</view>
+    </view>
+    <view wx:if="{{item.unread}}" class="dot"></view>
+  </view>
+</view>

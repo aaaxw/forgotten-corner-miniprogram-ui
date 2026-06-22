@@ -1,0 +1,50 @@
+<view class="page detail-page" wx:if="{{record}}">
+  <view class="detail-hero hero-card">
+    <view class="detail-type {{record.color}}">{{record.typeText}}</view>
+    <view class="detail-title">{{record.title}}</view>
+    <view class="detail-status">{{record.status}}</view>
+  </view>
+
+  <scroll-view wx:if="{{images.length > 0}}" class="photo-scroll" scroll-x>
+    <view class="photo-row">
+      <view wx:for="{{images}}" wx:key="*this" class="detail-photo" data-index="{{index}}" bindtap="previewImage">
+        <image src="{{item}}" mode="aspectFill" />
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="panel info-panel">
+    <view class="info-row">
+      <view class="info-label">分类</view>
+      <view class="info-value">{{record.category}}</view>
+    </view>
+    <view class="info-row">
+      <view class="info-label">地点</view>
+      <view class="info-value">{{record.place}}</view>
+    </view>
+    <view class="info-row">
+      <view class="info-label">时间</view>
+      <view class="info-value">{{record.time}}</view>
+    </view>
+    <view class="info-row">
+      <view class="info-label">发布方</view>
+      <view class="info-value">{{record.contact}}</view>
+    </view>
+  </view>
+
+  <view class="panel desc-panel">
+    <view class="section-title">物品描述</view>
+    <view class="desc-text">{{record.desc}}</view>
+    <view class="hint-box">
+      <view class="hint-title">认领核验</view>
+      <view class="hint-text">请能准确说明：{{record.ownerHint}}</view>
+    </view>
+  </view>
+
+  <view class="safe-tip">平台默认隐藏手机号等隐私信息，建议先通过站内消息确认身份。</view>
+
+  <view class="action-bar">
+    <view class="secondary-btn detail-btn {{isCompleted ? 'disabled' : ''}}" bindtap="markDone">{{isCompleted ? '已完成' : '标记完成'}}</view>
+    <view class="primary-btn detail-btn" bindtap="contactOwner">联系对方</view>
+  </view>
+</view>

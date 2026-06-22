@@ -1,0 +1,60 @@
+<view class="page publish-page">
+  <view class="publish-head">
+    <view class="head-title">发布一条线索</view>
+    <view class="head-desc">信息越清晰，匹配越准确。联系方式仅在双方确认后展示。</view>
+  </view>
+
+  <view class="mode-tabs">
+    <view class="mode {{mode === 'lost' ? 'active' : ''}}" data-mode="lost" bindtap="switchMode">我丢了</view>
+    <view class="mode {{mode === 'found' ? 'active' : ''}}" data-mode="found" bindtap="switchMode">我捡到</view>
+  </view>
+
+  <form bindsubmit="submitForm" class="panel form-panel">
+    <view class="field">
+      <view class="label">物品名称</view>
+      <input name="title" placeholder="例如：蓝色校园卡、黑色耳机" placeholder-class="placeholder" />
+    </view>
+    <view class="field">
+      <view class="label">分类</view>
+      <picker range="{{categories}}" value="{{categoryIndex}}" bindchange="chooseCategory">
+        <view class="picker-value">{{categories[categoryIndex]}}</view>
+      </picker>
+    </view>
+    <view class="field">
+      <view class="label">地点</view>
+      <input name="place" placeholder="选择或输入遗失/拾到地点" placeholder-class="placeholder" />
+    </view>
+    <view class="field">
+      <view class="label">时间</view>
+      <input name="time" placeholder="今天 10:20 / 昨天晚上" placeholder-class="placeholder" />
+    </view>
+    <view class="field">
+      <view class="label">发布身份</view>
+      <input name="contact" placeholder="例如：秦同学、图书馆服务台（选填）" placeholder-class="placeholder" />
+    </view>
+    <view class="field">
+      <view class="label">特征描述</view>
+      <textarea name="desc" placeholder="颜色、品牌、特殊标记、认领暗号等" placeholder-class="placeholder" />
+    </view>
+    <view class="field">
+      <view class="label">认领核验问题</view>
+      <input name="ownerHint" placeholder="例如：学号后四位、贴纸图案" placeholder-class="placeholder" />
+    </view>
+
+    <view class="upload-section">
+      <view class="upload-title">物品照片 <text>最多 3 张，选填</text></view>
+      <view class="upload-grid">
+        <view wx:for="{{images}}" wx:key="*this" class="photo-cell" data-index="{{index}}" bindtap="previewImage">
+          <image src="{{item}}" mode="aspectFill" />
+          <view class="photo-remove" data-index="{{index}}" catchtap="removeImage">×</view>
+        </view>
+        <view wx:if="{{images.length < 3}}" class="upload-box" bindtap="chooseImages">
+          <view class="upload-plus">+</view>
+          <view class="upload-text">上传照片</view>
+        </view>
+      </view>
+    </view>
+
+    <button class="primary-btn submit-btn" form-type="submit">提交审核</button>
+  </form>
+</view>

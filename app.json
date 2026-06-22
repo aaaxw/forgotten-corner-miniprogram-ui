@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/detail/detail",
+    "pages/publish/publish",
+    "pages/messages/messages",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarTitleText": "遗忘角落探险家",
+    "navigationBarBackgroundColor": "#F7F1DE",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F7F1DE",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#7C7A70",
+    "selectedColor": "#166B5F",
+    "backgroundColor": "#FFFDF5",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/messages/messages",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

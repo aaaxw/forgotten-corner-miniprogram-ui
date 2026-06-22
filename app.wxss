@@ -1,0 +1,66 @@
+page {
+  min-height: 100%;
+  color: #243633;
+  background: #f7f1de;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 32rpx;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 195, 86, 0.34), transparent 260rpx),
+    radial-gradient(circle at 88% 4%, rgba(70, 179, 167, 0.28), transparent 280rpx),
+    linear-gradient(180deg, #f7f1de 0%, #edf6ed 100%);
+}
+
+.hero-card,
+.panel,
+.item-card {
+  border: 3rpx solid rgba(36, 54, 51, 0.08);
+  border-radius: 36rpx;
+  background: rgba(255, 253, 245, 0.92);
+  box-shadow: 0 22rpx 54rpx rgba(36, 54, 51, 0.09);
+}
+
+.section-title {
+  margin: 38rpx 0 20rpx;
+  font-size: 34rpx;
+  font-weight: 800;
+  letter-spacing: 1rpx;
+}
+
+.muted {
+  color: #7c7a70;
+}
+
+.primary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92rpx;
+  border-radius: 999rpx;
+  color: #fffdf5;
+  font-size: 31rpx;
+  font-weight: 800;
+  background: linear-gradient(135deg, #166b5f, #2da995);
+  box-shadow: 0 16rpx 32rpx rgba(22, 107, 95, 0.24);
+}
+
+button.primary-btn::after {
+  border: 0;
+}
+
+.secondary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  border: 3rpx solid #166b5f;
+  border-radius: 999rpx;
+  color: #166b5f;
+  font-size: 30rpx;
+  font-weight: 800;
+  background: #fffdf5;
+}
